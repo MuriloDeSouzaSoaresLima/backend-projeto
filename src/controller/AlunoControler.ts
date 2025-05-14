@@ -50,7 +50,7 @@ class AlunoController extends Aluno {
             const novoAluno = new Aluno(
                 dadosRecebidos.nome_aluno,
                 dadosRecebidos.data_nascimento ?? new Date("1900-01-01"),
-                dadosRecebidos.email ?? '',
+                dadosRecebidos.email,
                 dadosRecebidos.senha              
             );
 
@@ -108,7 +108,7 @@ class AlunoController extends Aluno {
             const aluno = new Aluno(
                 dadosRecebidos.nome_aluno,
                 dadosRecebidos.data_nascimento ?? new Date("1900-01-01"),
-                dadosRecebidos.email ?? '',
+                dadosRecebidos.email,
                 dadosRecebidos.senha              
             );
 

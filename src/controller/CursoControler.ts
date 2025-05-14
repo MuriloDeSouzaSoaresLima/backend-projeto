@@ -10,8 +10,8 @@ interface CursoDTO {
     carga: string; // Curso do Curso
     dia_curso: string; // dia_curso do Curso
     hora: string; // Ano de publicação do Curso
-    data_inicio: Date; // ISBN do Curso
-    data_fim: Date; // Quantidade total daquele exemplar
+    data_inicio?: Date; // ISBN do Curso
+    data_fim?: Date; // Quantidade total daquele exemplar
 
 }
 
