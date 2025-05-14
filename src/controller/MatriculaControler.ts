@@ -18,7 +18,7 @@ class MatriculaController extends Matricula {
         }
     }
 
-    static async cadastrar(req: Request, res: Response) {
+    static async cadastrar(req: Request, res: Response): Promise<any> {
         try {
             const dados: MatriculaDTO = req.body;
 
@@ -40,7 +40,7 @@ class MatriculaController extends Matricula {
         }
     }
 
-    static async remover(req: Request, res: Response) {
+    static async remover(req: Request, res: Response): Promise<any> {
         try {
             const id = parseInt(req.query.idMatricula as string);
             const result = await Matricula.removerMatricula(id);
@@ -55,7 +55,7 @@ class MatriculaController extends Matricula {
         }
     }
 
-    static async atualizar(req: Request, res: Response) {
+    static async atualizar(req: Request, res: Response): Promise<any> {
         try {
             const dados: MatriculaDTO = req.body;
             const id = parseInt(req.query.idMatricula as string);

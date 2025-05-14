@@ -43,7 +43,7 @@ class CursoController extends Curso {
      * @param res Objeto de resposta HTTP.
      * @returns Mensagem de sucesso ou erro em formato JSON.
      */
-    static async cadastrar(req: Request, res: Response) {
+    static async cadastrar(req: Request, res: Response): Promise<any> {
         try {
             const dadosRecebidos: CursoDTO = req.body;
 
@@ -78,7 +78,7 @@ class CursoController extends Curso {
     * @param res Objeto de resposta HTTP.
     * @returns Mensagem de sucesso ou erro em formato JSON.
     */
-    static async remover(req: Request, res: Response): Promise<Response> {
+    static async remover(req: Request, res: Response): Promise<any> {
         try {
             const idCurso = parseInt(req.query.idCurso as string);
             const result = await Curso.removerCurso(idCurso);
@@ -102,7 +102,7 @@ class CursoController extends Curso {
      * @param res Objeto de resposta do Express
      * @returns Retorna uma resposta HTTP indicando sucesso ou falha na atualização
      */
-    static async atualizar(req: Request, res: Response): Promise<Response> {
+    static async atualizar(req: Request, res: Response): Promise<any> {
         try {
             const dadosRecebidos: CursoDTO = req.body;
 

@@ -1,7 +1,7 @@
 import express from "express";
 import { SERVER_ROUTES } from "./appConfig";
 import AlunoController from "./controller/AlunoControler";
-import Curso from "./controller/CursoControler
+import Curso from "./controller/CursoControler";
 import Matricula from "./controller/MatriculaControler";
 
 const router = express.Router();
@@ -26,6 +26,6 @@ router.put(SERVER_ROUTES.ATUALIZAR_CURSO, Curso.atualizar);
 router.get(SERVER_ROUTES.LISTAR_MATRICULA, Matricula.todos);
 router.post(SERVER_ROUTES.NOVO_MATRICULA, Matricula.cadastrar);
 router.put(SERVER_ROUTES.ATUALIZAR_MATRICULA, Matricula.atualizar);
-router.put(SERVER_ROUTES.REMOVER_ALUNO.MATRICULA, Matricula.remover);
+router.put(SERVER_ROUTES.REMOVER_MATRICULA, Matricula.remover);
 
 export { router }
