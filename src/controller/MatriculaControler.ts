@@ -22,13 +22,13 @@ class MatriculaController extends Matricula {
         try {
             const dados: MatriculaDTO = req.body;
 
-            const novaMatricula = new Matricula(
+            const novoMatricula = new Matricula(
                 dados.id_aluno,
                 dados.id_curso,
                 new Date(dados.data_matricula)
             );
 
-            const result = await Matricula.cadastrarMatricula(novaMatricula);
+            const result = await Matricula.cadastrarMatricula(novoMatricula);
             if (result) {
                 return res.status(200).json("Matrícula cadastrada com sucesso");
             } else {
@@ -42,7 +42,7 @@ class MatriculaController extends Matricula {
 
     static async remover(req: Request, res: Response): Promise<any> {
         try {
-            const id = parseInt(req.query.idMatricula as string);
+            const id = parseInt(req.query.id_matricula as string);
             const result = await Matricula.removerMatricula(id);
             if (result) {
                 return res.status(200).json("Matrícula removida com sucesso");
@@ -58,7 +58,7 @@ class MatriculaController extends Matricula {
     static async atualizar(req: Request, res: Response): Promise<any> {
         try {
             const dados: MatriculaDTO = req.body;
-            const id = parseInt(req.query.idMatricula as string);
+            const id = parseInt(req.query.id_matricula as string);
 
             const matricula = new Matricula(
                 dados.id_aluno,

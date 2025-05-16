@@ -24,6 +24,7 @@ export class Curso {
     * @param dia_curso Editora do Curso
     * @param hora Ano de publicação do Curso
     * @param data_inicio ISBN do Curso
+    * @param data_fim 
     */
     public constructor(_nome_curso: string, _carga: string, _dia_curso: string, _hora: string,
         _data_inicio: Date, _data_fim: Date) {
@@ -195,22 +196,18 @@ export class Curso {
 
             // percorre cada resultado retornado pelo banco de dados
             // Curso é o apelido que demos para cada linha retornada do banco de dados
-            respostaBD.rows.forEach((Curso) => {
-                // criando objeto Curso
+            respostaBD.rows.forEach((curso: any) => {
                 let novoCurso = new Curso(
-                    Curso.nome_curso,
-                    Curso.data_inicio,
-                    Curso.data_fim,
-                    Curso.carga,
-                    Curso.dia_curso,
-                    Curso.hora
-
+                    curso.nome_curso,
+                    curso.carga,
+                    curso.dia_curso,
+                    curso.hora,
+                    curso.data_inicio,
+                    curso.data_fim
                 );
-                // adicionando o ID ao objeto
-                novoCurso.setIdCurso(Curso.id_curso);
-                novoCurso.setStatusCurso(Curso.status_curso);
-
-                // adicionando um Curso na lista
+                novoCurso.setIdCurso(curso.id_curso);
+                novoCurso.setStatusCurso(curso.status_curso);
+            
                 listaDeCursos.push(novoCurso);
             });
 
@@ -245,7 +242,7 @@ export class Curso {
                     '${Curso.getDataFim()}',
                     '${Curso.getCarga().toUpperCase()}',
                     '${Curso.getDiaCurso().toUpperCase()}',
-                    '${Curso.getHora().toUpperCase()}',
+                    '${Curso.getHora().toUpperCase()}'
                 )
                 RETURNING id_curso;`;
 
@@ -325,7 +322,7 @@ export class Curso {
                                             data_fim = '${Curso.getDataFim()}',
                                             carga = '${Curso.getCarga().toUpperCase()}',
                                             dia_curso = '${Curso.getDiaCurso().toUpperCase()}', 
-                                            hora = '${Curso.getHora().toUpperCase()}',                                          
+                                            hora = '${Curso.getHora().toUpperCase()}'
                                         WHERE id_curso = ${Curso.id_curso}`;
 
             // Executa a query de atualização e verifica se a operação foi bem-sucedida.

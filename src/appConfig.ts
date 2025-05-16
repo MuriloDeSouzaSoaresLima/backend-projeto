@@ -9,7 +9,7 @@ const SERVER_ROUTES = {
     NOVO_CURSO: '/novo/curso',
     ATUALIZAR_CURSO: '/atualiza/curso',
     REMOVER_CURSO: '/remove/curso',
-    LISTAR_CURSOS: '/lista/curso',
+    LISTAR_CURSOS: '/lista/cursos',
 
     NOVO_MATRICULA: '/novo/matricula',
     ATUALIZAR_MATRICULA: '/atualiza/matricula',

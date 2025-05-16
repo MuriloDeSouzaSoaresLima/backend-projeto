@@ -77,8 +77,8 @@ class AlunoController extends Aluno {
      */
     static async remover(req: Request, res: Response): Promise<any> {
         try {
-            const idAluno = parseInt(req.query.idAluno as string);
-            const result = await Aluno.removerAluno(idAluno);
+            const id_aluno = parseInt(req.query.id_aluno as string);
+            const result = await Aluno.removerAluno(id_aluno);
             
             if (result) {
                 return res.status(200).json('Aluno removido com sucesso');
@@ -113,7 +113,7 @@ class AlunoController extends Aluno {
             );
 
             // Define o ID do aluno, que deve ser passado na query string
-            aluno.setId_aluno(parseInt(req.query.idAluno as string));
+            aluno.setIdAluno(parseInt(req.query.id_aluno as string));
 
             // Chama o método para atualizar o cadastro do aluno no banco de dados
             if (await Aluno.atualizarAluno(aluno)) {

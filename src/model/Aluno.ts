@@ -43,7 +43,7 @@ export class Aluno {
      * 
      * @param _id_aluno : id_aluno
      */
-    public setId_aluno(_id_aluno: number): void {
+    public setIdAluno(_id_aluno: number): void {
         this.id_aluno = _id_aluno;
     }
 
@@ -168,7 +168,7 @@ export class Aluno {
                     aluno.senha
                 );
                 // adicionando o ID ao objeto
-                novoAluno.setId_aluno(aluno.id_aluno);
+                novoAluno.setIdAluno(aluno.id_aluno);
                 novoAluno.setStatusAluno(aluno.status_aluno);
 
                 // adicionando a pessoa na lista
@@ -211,7 +211,7 @@ export class Aluno {
             );
 
             // Define o ID do aluno no objeto Aluno
-            aluno.setId_aluno(respostaBD.rows[0].id_aluno);
+            aluno.setIdAluno(respostaBD.rows[0].id_aluno);
 
             // Define o status do aluno (ativo, inativo, etc.)
             aluno.setStatusAluno(respostaBD.rows[0].status_aluno);
@@ -285,12 +285,12 @@ export class Aluno {
             // verifica se o objeto é válido e depois se o status_aluno é TRUE
             if (aluno && aluno.getStatusAluno()) {
                 // Cria a consulta (query) para remover o aluno
-                const queryDeleteEmprestimoAluno = `UPDATE emprestimo 
-                                                        SET status_emprestimo_registro = FALSE
+                const queryDeleteMatriculaAluno = `UPDATE matricula
+                                                        SET status_matricla = FALSE
                                                         WHERE id_aluno=${id_aluno};`;
 
                 // remove os emprestimos associado ao aluno
-                await database.query(queryDeleteEmprestimoAluno);
+                await database.query(queryDeleteMatriculaAluno);
 
                 // Construção da query SQL para deletar o Aluno.
                 const queryDeleteAluno = `UPDATE aluno 

@@ -80,8 +80,8 @@ class CursoController extends Curso {
     */
     static async remover(req: Request, res: Response): Promise<any> {
         try {
-            const idCurso = parseInt(req.query.idCurso as string);
-            const result = await Curso.removerCurso(idCurso);
+            const id_curso = parseInt(req.query.id_curso as string);
+            const result = await Curso.removerCurso(id_curso);
 
             if (result) {
                 return res.status(200).json('Curso removido com sucesso');
@@ -117,7 +117,7 @@ class CursoController extends Curso {
             );
 
             // Define o ID do curso, que deve ser passado na query string
-            curso.setIdCurso(parseInt(req.query.idCurso as string));
+            curso.setIdCurso(parseInt(req.query.id_curso as string));
 
             // Chama o método para atualizar o cadastro do curso no banco de dados
             if (await Curso.atualizarCurso(curso)) {
